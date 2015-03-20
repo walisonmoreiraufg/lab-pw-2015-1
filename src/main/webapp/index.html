@@ -1,9 +1,37 @@
 <html>
 	<head>
-		<title>Alô Mundo!</title>
+		<title>Alô Você!</title>
+		<style>
+			h1, h2, div {
+				color: blue;
+			}
+			.teste1 {
+				background-color: red;
+			}
+			.sublinhado {
+				text-decoration: underline;
+			}
+			#teste2 {
+				background-color: orange;
+			}
+			
+			div.riscado {
+				text-decoration: line-through;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Alô Mundo!</h1>
-		<h1>Teste</h1>
+		<h1 class="teste1 sublinhado">Teste 1</h1>
+		<h1 id="teste2">Teste 2</h1>
+		<div class="riscado">Texto riscado</div>
+		<script>
+			var conf = confirm("Press a button!");
+			if (conf) {
+				alert("Verdadeiro");
+			} else {
+				alert("Falso");
+			}
+		</script>
 	</body>
 </html>
