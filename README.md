@@ -1,3 +1,7 @@
-Para executar a aplicaÁ„o utilize:
+Para executar a aplica√ß√£o utilize o seguinte plugin do maven:
 
-mvn org.apache.tomcat.maven:tomcat7-maven-plugin:2.2:run
+**org.apache.tomcat.maven:tomcat7-maven-plugin:2.2:run**
+
+Adicione o par√¢metro abaixo para executar na porta 9090:
+
+**maven.tomcat.port** = **9090**
