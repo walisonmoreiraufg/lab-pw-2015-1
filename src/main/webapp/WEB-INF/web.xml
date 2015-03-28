@@ -8,5 +8,9 @@
 	<welcome-file-list>
 		<welcome-file>jsp/calculadora.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
 
 </web-app>
