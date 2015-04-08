@@ -12,6 +12,7 @@ Double op2 = Calculadora.toDouble(request.getParameter("op2"));
 
 Double resultado = Calculadora.calcular(op1, operacao, op2);
 %>
+<%!public Double resultado = 0.0;%>
 
 <%!public Double calcular(Double op1, String operacao, Double op2) {
 	Double result = 0.0;
