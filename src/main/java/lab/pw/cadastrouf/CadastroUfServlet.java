@@ -3,6 +3,7 @@ package lab.pw.cadastrouf;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -55,22 +56,44 @@ public class CadastroUfServlet extends HttpServlet {
 	}
 
 	private void excluirUf(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+			throws ServletException, IOException, SQLException {
+		String codigo = req.getParameter("codigo");
+
+		String url = "jdbc:derby:db;create=true";
+		Connection conexao = DriverManager.getConnection(url);
+		Statement stmt = conexao.createStatement();
+		stmt.executeUpdate("delete from uf where codigo = '" + codigo + "'");
+		
 		Uf uf = new Uf();
-		uf.setCodigo("1");
+		uf.setCodigo(codigo);
 		uf.setNome("");
+
 		req.setAttribute("uf", uf);
 
 		chamarJsp(req, resp);
 	}
 
 	private void carregarUf(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+			throws ServletException, IOException, SQLException {
+		String codigo = req.getParameter("codigo");
+
+		String url = "jdbc:derby:db;create=true";
+		Connection conexao = DriverManager.getConnection(url);
+		Statement stmt = conexao.createStatement();
+		ResultSet rs = stmt.executeQuery("select nome from uf where codigo = '" + codigo + "'");
+
 		Uf uf = new Uf();
-		uf.setCodigo("1");
-		uf.setNome("Goiás");
+		uf.setCodigo(codigo);
+
+		if (rs.next()) {
+			String nome = rs.getString("nome");
+			uf.setNome(nome);
+		} else {
+			uf.setNome("");
+		}
 
 		req.setAttribute("uf", uf);
+
 		chamarJsp(req, resp);
 	}
 
