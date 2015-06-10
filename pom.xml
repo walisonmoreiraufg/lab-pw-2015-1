@@ -41,5 +41,11 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.1.Final</version>
 		</dependency>
+		<!-- Para usar o pool de conexões C3P0. -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>4.3.1.Final</version>
+		</dependency>
 	</dependencies>
 </project>
